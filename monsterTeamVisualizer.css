@@ -1,0 +1,33 @@
+.image-container {
+    position: absolute;
+    
+    width: 100%;
+    height: 100%;
+    
+    /* Center elements */
+    display: grid;
+    place-items: center;
+    
+    opacity: 0;                   /* controlled with JS */
+    filter: none;                 /* controlled with JS */
+}
+
+#background {
+    top: {{background_img_vertical_offset}}px;
+    left: {{background_img_horizontal_offset}}px;
+    
+    z-index: 1;
+    
+    transition: filter {{incapacitated_transition_duration}}s, 
+                opacity {{background_fade_in_duration}}s;
+}
+
+#monster {
+    top: {{monster_vertical_offset}}px;
+    left: {{monster_horizontal_offset}}px;
+    
+    z-index: 2;
+    
+    transition: filter {{incapacitated_transition_duration}}s, 
+                opacity calc({{monster_transition_duration}}s / 2);         /* transition consists of 2 halfes */
+}

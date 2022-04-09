@@ -1,0 +1,194 @@
+{
+  "command1": {
+    "type": "text",
+    "label": "Command associated with this slot:",
+    "value": "!slot1",
+    "group": "General settings"
+  },
+  "permissionLvl": {
+    "type": "dropdown",
+    "label": "Who can trigger the command:",
+    "options": {
+      "streamer": "Streamer",
+      "mods": "Streamer + Mods",
+      "vips": "Streamer + Mods + Vips",
+      "everyone": "No restrictions"
+    },
+    "value": "mods",
+    "group": "General settings"
+  },
+  "additionalUsers": {
+    "type": "text",
+    "label": "Additional users (comma separated):",
+    "value": "",
+    "group": "General settings"
+  },
+  "cooldown": {
+    "type": "number",
+    "label": "Cooldown for command in sec:",
+    "value": 5,
+    "min": 0,
+    "step": 1,
+    "group": "General settings"
+  },
+  "pastebin_url": {
+    "type": "text",
+    "label": "pastebin.com URL:",
+    "value": "",
+    "group": "Monster Image"
+  },
+  "monster_scale": {
+    "type": "number",
+    "label": "Scale in %:",
+    "value": 100,
+    "min": 0,
+    "step": 1,
+    "group": "Monster Image"
+  },
+  "monster_vertical_offset": {
+    "type": "number",
+    "label": "Vertical offset in px:",
+    "value": 0,
+    "step": 1,
+    "group": "Monster Image"
+  },
+  "monster_horizontal_offset": {
+    "type": "number",
+    "label": "Horizontal offset in px:",
+    "value": 0,
+    "step": 1,
+    "group": "Monster Image"
+  },
+  "monster_incapacitated_greyscale": {
+    "type": "number",
+    "label": "Greyscaling when K.O. in %:",
+    "value": 100,
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "group": "Monster Image"
+  },
+  "monster_incapacitated_brightness": {
+    "type": "number",
+    "label": "Brightness when K.O. in %:",
+    "value": 35,
+    "min": 0,
+    "step": 1,
+    "group": "Monster Image"
+  },
+  "background_img": {
+    "type": "image-input",
+    "label": "Background Image:",
+    "group": "Background Image"
+  },
+  "background_img_opacity": {
+    "type": "number",
+    "label": "Opacity in %:",
+    "value": 100,
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "group": "Background Image"
+  },
+  "background_img_scale": {
+    "type": "number",
+    "label": "Scale in %:",
+    "value": 100,
+    "min": 0,
+    "step": 1,
+    "group": "Background Image"
+  },
+  "background_img_vertical_offset": {
+    "type": "number",
+    "label": "Vertical offset in px:",
+    "value": 0,
+    "step": 1,
+    "group": "Background Image"
+  },
+  "background_img_horizontal_offset": {
+    "type": "number",
+    "label": "Horizontal offset in px:",
+    "value": 0,
+    "step": 1,
+    "group": "Background Image"
+  },
+  "background_img_incapacitated_greyscale": {
+    "type": "number",
+    "label": "Greyscaling when K.O. in %:",
+    "value": 100,
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "group": "Background Image"
+  },
+  "background_img_incapacitated_brightness": {
+    "type": "number",
+    "label": "Brightness when K.O. in %:",
+    "value": 100,
+    "min": 0,
+    "step": 1,
+    "group": "Background Image"
+  },
+  "background_fade_in_duration": {
+    "type": "number",
+    "label": "Fade-in duration of background in sec:",
+    "value": 0.8,
+    "min": 0,
+    "step": 0.1,
+    "group": "Transitions"
+  },
+  "monster_transition_duration": {
+    "type": "number",
+    "label": "Duration of Monster transition in sec:",
+    "value": 1.6,
+    "min": 0,
+    "step": 0.1,
+    "group": "Transitions"
+  },
+  "incapacitated_transition_duration": {
+    "type": "number",
+    "label": "Duration of K.O. transition in sec:",
+    "value": 1.0,
+    "min": 0,
+    "step": 0.1,
+    "group": "Transitions"
+  },
+  "test_mode_activation": {
+    "type": "dropdown",
+    "label": "Test mode:",
+    "options": {
+      "on": "on",
+      "off": "off"
+    },
+    "value": "off",
+    "group": "Test Mode"
+  },
+  "test_args": {
+    "type": "text",
+    "label": "Simulated command arguments:",
+    "value": "",
+    "group": "Test Mode"
+  },
+  "test_incapacitated": {
+    "type": "dropdown",
+    "label": "Show as K.O.:",
+    "options": {
+      "on": "on",
+      "off": "off"
+    },
+    "value": "off",
+    "group": "Test Mode"
+  },
+  "widgetName": {
+    "type": "hidden",
+    "value": "MonsterTeam"
+  },
+  "widgetAuthor": {
+    "type": "hidden",
+    "value": "avoeh"
+  },
+  "widgetVersion": {
+    "type": "hidden",
+    "value": 2
+  }
+}
