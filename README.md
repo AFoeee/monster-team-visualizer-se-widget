@@ -9,15 +9,17 @@ The widget allows to manage an image slot via chat commands. The slot can be pop
 
 Beyond the handling of image changes, it's also capable of displaying a monster's combat status.
 
+See also this [demonstration video](https://streamable.com/g8ph5d).
+
 
 ## Command types:
+Spaces are used as separators between the individual parts of the chat command (except for those within quotation marks).  
 
  - `!slot1 tag keyLvl1 keyLvl2 ... keyLvlN` 
    
    Changes the displayed image. 
    
    The syntax follows the structure defined by the particular pastebin entry.  
-   Spaces are used as separators between the individual parts of the chat command (except for those within quotation marks).  
    The first element after the actual command phrase is used as tag, all subsequentual elements are interpreted as keys (in the order they appear, one per nesting level).
    
  - `!slot1 clear`
@@ -56,6 +58,8 @@ Therefore an entry like the following can make sense in some (rare) cases:
 { "default":"url1", "key2":"url2" }
 ```
 
+There is also this [tutorial video](https://streamable.com/a5k8of) which shows how to create a proper pastebin document.
+
 
 ## Example:
 Let's assume we have a pastebin document with this content:
@@ -93,6 +97,6 @@ For the `alternative super` variant of `C`:
 
 Since there is no *"default"* key for D's `super` nesting, it's necessary to specify the last argument:
 ```
-!slot d super form1
-!slot d super form2
-``` 
+!slot1 d super form1
+!slot1 d super form2
+```
