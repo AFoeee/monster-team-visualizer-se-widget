@@ -1,33 +1,83 @@
-.image-container {
-    position: absolute;
-    
-    width: 100%;
-    height: 100%;
-    
-    /* Center elements */
-    display: grid;
-    place-items: center;
-    
-    opacity: 0;                   /* controlled with JS */
-    filter: none;                 /* controlled with JS */
+.main-container {
+  width: 100%;
+  height: 100%;
+  
+  /* The elements are lined up in a chain and wrapped if there is not enough 
+   * space. */
+  display: flex;
+  flex-wrap: wrap;
+  
+  /* Defines from which side the chain gets filled up. */
+  flex-direction: {{slotFillDirection}};
+  
+  /* Horizontal and vertical alignment. */
+  justify-content: {{slotDistroX}};
+  align-content: {{slotDistroY}};
+  
+  /* Spacing between elements. */
+  row-gap: {{slotRowGap}}px;
+  column-gap: {{slotColGap}}px;
 }
 
-#background {
-    top: {{background_img_vertical_offset}}px;
-    left: {{background_img_horizontal_offset}}px;
-    
-    z-index: 1;
-    
-    transition: filter {{incapacitated_transition_duration}}s, 
-                opacity {{background_fade_in_duration}}s;
+.monster-slot {
+  /* 'Absolute' elements are positioned relative to their closest positioned 
+   * ancestors. */
+  position: relative;
+  
+  /* Dimensions of each slot. */
+  width: {{slotWidth}}px;
+  height: {{slotHeight}}px;
+  
+  /* Slots keep their size (they don’t grow or shrink). */
+  flex: none;
 }
 
-#monster {
-    top: {{monster_vertical_offset}}px;
-    left: {{monster_horizontal_offset}}px;
-    
-    z-index: 2;
-    
-    transition: filter {{incapacitated_transition_duration}}s, 
-                opacity calc({{monster_transition_duration}}s / 2);         /* transition consists of 2 halfes */
+.monster-layer {
+  /* Each layer takes up all the space of its parent. */
+  width: 100%;
+  height: 100%;
+}
+
+.monster-background {
+  /* For layering. */
+  position: absolute;
+  
+  /* Offset for the background. */
+  left: {{bgOffsetX}}px;
+  top: {{bgOffsetY}}px;
+}
+
+.monster-foreground {
+  /* For layering. */
+  position: absolute;
+  
+  /* Offset for the foreground. */
+  left: {{fgOffsetX}}px;
+  top: {{fgOffsetY}}px;
+}
+
+.monster-layer img {
+  position: absolute;
+  
+  /* Centers images which are children of a 'monster-layer'. Note that the parent
+   * itself is not centered and might have an offset. */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* The replaced content is made to fill the box, while preserving its aspect 
+   * ratio. */
+  object-fit: contain;
+}
+
+.monster-background img {
+  /* Used by object-fit property. */
+  width: {{bgScale}}%;
+  height: {{bgScale}}%;
+}
+
+.monster-foreground img {
+  /* Used by object-fit property. */
+  width: {{fgScale}}%;
+  height: {{fgScale}}%;
 }

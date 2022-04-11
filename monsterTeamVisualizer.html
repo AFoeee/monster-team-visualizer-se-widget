@@ -1,6 +1,32 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script defer src="https://reboot0.de/hosted/js/se-tools.min.js"></script>
 
 <div class="main-container">
-    <div id="background" class="image-container"></div>
-    <div id="monster" class="image-container"></div>
+  <!-- Elements are created dynamically and follow the pattern:
+      
+      <div class="monster-slot">
+        <div class="monster-layer monster-background">
+          <div class="monster-layer filter-layer">
+            <div class="monster-layer shadow-layer">
+              <div class="monster-layer mirror-layer">
+                <img src="some_image">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="monster-layer monster-foreground">
+          <div class="monster-layer filter-layer">
+            <div class="monster-layer shadow-layer">
+              <div class="monster-layer mirror-layer">
+                <img src="another_image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      ...
+      
+  -->
 </div>

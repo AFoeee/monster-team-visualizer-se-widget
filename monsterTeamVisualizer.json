@@ -1,194 +1,435 @@
 {
-  "command1": {
-    "type": "text",
-    "label": "Command associated with this slot:",
-    "value": "!slot1",
-    "group": "General settings"
-  },
+  "command": {
+    "type": "text", 
+    "label": "Associated command:", 
+    "value": "!slot", 
+    "group": "General Settings"
+  }, 
   "permissionLvl": {
-    "type": "dropdown",
-    "label": "Who can trigger the command:",
+    "type": "dropdown", 
+    "label": "Who can trigger the widget?", 
     "options": {
-      "streamer": "Streamer",
-      "mods": "Streamer + Mods",
-      "vips": "Streamer + Mods + Vips",
-      "everyone": "No restrictions"
-    },
-    "value": "mods",
-    "group": "General settings"
-  },
-  "additionalUsers": {
-    "type": "text",
-    "label": "Additional users (comma separated):",
-    "value": "",
-    "group": "General settings"
-  },
+      "streamer": "Streamer", 
+      "mods": "Streamer + Mods"
+    }, 
+    "value": "mods", 
+    "group": "General Settings"
+  }, 
+  "otherUsers": {
+    "type": "text", 
+    "label": "Additional users (comma separated):", 
+    "value": "", 
+    "group": "General Settings"
+  }, 
+  "blockedUsers": {
+    "type": "text", 
+    "label": "Blocked users (comma separated):", 
+    "value": "", 
+    "group": "General Settings"
+  }, 
   "cooldown": {
-    "type": "number",
-    "label": "Cooldown for command in sec:",
-    "value": 5,
-    "min": 0,
-    "step": 1,
-    "group": "General settings"
-  },
-  "pastebin_url": {
-    "type": "text",
-    "label": "pastebin.com URL:",
-    "value": "",
-    "group": "Monster Image"
-  },
-  "monster_scale": {
-    "type": "number",
-    "label": "Scale in %:",
-    "value": 100,
-    "min": 0,
-    "step": 1,
-    "group": "Monster Image"
-  },
-  "monster_vertical_offset": {
-    "type": "number",
-    "label": "Vertical offset in px:",
-    "value": 0,
-    "step": 1,
-    "group": "Monster Image"
-  },
-  "monster_horizontal_offset": {
-    "type": "number",
-    "label": "Horizontal offset in px:",
-    "value": 0,
-    "step": 1,
-    "group": "Monster Image"
-  },
-  "monster_incapacitated_greyscale": {
-    "type": "number",
-    "label": "Greyscaling when K.O. in %:",
-    "value": 100,
-    "min": 0,
-    "max": 100,
-    "step": 1,
-    "group": "Monster Image"
-  },
-  "monster_incapacitated_brightness": {
-    "type": "number",
-    "label": "Brightness when K.O. in %:",
-    "value": 35,
-    "min": 0,
-    "step": 1,
-    "group": "Monster Image"
-  },
-  "background_img": {
-    "type": "image-input",
-    "label": "Background Image:",
-    "group": "Background Image"
-  },
-  "background_img_opacity": {
-    "type": "number",
-    "label": "Opacity in %:",
-    "value": 100,
-    "min": 0,
-    "max": 100,
-    "step": 1,
-    "group": "Background Image"
-  },
-  "background_img_scale": {
-    "type": "number",
-    "label": "Scale in %:",
-    "value": 100,
-    "min": 0,
-    "step": 1,
-    "group": "Background Image"
-  },
-  "background_img_vertical_offset": {
-    "type": "number",
-    "label": "Vertical offset in px:",
-    "value": 0,
-    "step": 1,
-    "group": "Background Image"
-  },
-  "background_img_horizontal_offset": {
-    "type": "number",
-    "label": "Horizontal offset in px:",
-    "value": 0,
-    "step": 1,
-    "group": "Background Image"
-  },
-  "background_img_incapacitated_greyscale": {
-    "type": "number",
-    "label": "Greyscaling when K.O. in %:",
-    "value": 100,
-    "min": 0,
-    "max": 100,
-    "step": 1,
-    "group": "Background Image"
-  },
-  "background_img_incapacitated_brightness": {
-    "type": "number",
-    "label": "Brightness when K.O. in %:",
-    "value": 100,
-    "min": 0,
-    "step": 1,
-    "group": "Background Image"
-  },
-  "background_fade_in_duration": {
-    "type": "number",
-    "label": "Fade-in duration of background in sec:",
-    "value": 0.8,
-    "min": 0,
-    "step": 0.1,
-    "group": "Transitions"
-  },
-  "monster_transition_duration": {
-    "type": "number",
-    "label": "Duration of Monster transition in sec:",
-    "value": 1.6,
-    "min": 0,
-    "step": 0.1,
-    "group": "Transitions"
-  },
-  "incapacitated_transition_duration": {
-    "type": "number",
-    "label": "Duration of K.O. transition in sec:",
-    "value": 1.0,
-    "min": 0,
-    "step": 0.1,
-    "group": "Transitions"
-  },
-  "test_mode_activation": {
-    "type": "dropdown",
-    "label": "Test mode:",
+    "type": "number", 
+    "label": "Cooldown for command in sec:", 
+    "min": 0, 
+    "value": 0, 
+    "step": 1, 
+    "group": "General Settings"
+  }, 
+  
+  "slotFillDirection": {
+    "type": "dropdown", 
+    "label": "Fill direction:", 
     "options": {
-      "on": "on",
-      "off": "off"
-    },
-    "value": "off",
-    "group": "Test Mode"
-  },
-  "test_args": {
-    "type": "text",
-    "label": "Simulated command arguments:",
-    "value": "",
-    "group": "Test Mode"
-  },
-  "test_incapacitated": {
-    "type": "dropdown",
-    "label": "Show as K.O.:",
+      "row": "left to right", 
+      "row-reverse": "right to left"
+    }, 
+    "value": "row", 
+    "group": "Slot Settings"
+  }, 
+  "slotQuantity": {
+    "type": "number", 
+    "label": "Number of slots:", 
+    "min": 1, 
+    "value": 6, 
+    "step": 1, 
+    "group": "Slot Settings"
+  }, 
+  "slotWidth": {
+    "type": "number", 
+    "label": "Width of single slot in px:", 
+    "min": 1, 
+    "value": 150, 
+    "step": 1, 
+    "group": "Slot Settings"
+  }, 
+  "slotHeight": {
+    "type": "number", 
+    "label": "Height of single slot in px:", 
+    "min": 1, 
+    "value": 150, 
+    "step": 1, 
+    "group": "Slot Settings"
+  }, 
+  "slotDistroX": {
+    "type": "dropdown", 
+    "label": "Horizontal space distribution:", 
     "options": {
-      "on": "on",
+      "start": "compact", 
+      "center": "center", 
+      "space-evenly": "evenly"
+    }, 
+    "value": "start", 
+    "group": "Slot Settings"
+  }, 
+  "slotDistroY": {
+    "type": "dropdown", 
+    "label": "Vertical space distribution:", 
+    "options": {
+      "start": "compact", 
+      "center": "center", 
+      "space-evenly": "evenly"
+    }, 
+    "value": "start", 
+    "group": "Slot Settings"
+  }, 
+  "slotRowGap": {
+    "type": "number", 
+    "label": "Gap between rows in px:", 
+    "min": 0, 
+    "value": 5, 
+    "step": 1, 
+    "group": "Slot Settings"
+  }, 
+  "slotColGap": {
+    "type": "number", 
+    "label": "Gap between columns in px:", 
+    "min": 0, 
+    "value": 5, 
+    "step": 1, 
+    "group": "Slot Settings"
+  }, 
+  
+  "fgPastebinUrl": {
+    "type": "text", 
+    "label": "pastebin.com URL:", 
+    "value": "", 
+    "group": "Foreground"
+  }, 
+  "fgDefaultMirroring": {
+    "type": "dropdown", 
+    "label": "Mirrored by default:", 
+    "options": {
+      "off": "off", 
+      "xAxis": "X-axis", 
+      "yAxis": "Y-axis", 
+      "xyAxis": "X-axis and Y-axis"
+    }, 
+    "value": "off", 
+    "group": "Foreground"
+  }, 
+  "fgScale": {
+    "type": "number", 
+    "label": "Scale in %:", 
+    "min": 0, 
+    "value": 100, 
+    "step": 1, 
+    "group": "Foreground"
+  }, 
+  "fgOpacity": {
+    "type": "number", 
+    "label": "Opacity in %:", 
+    "min": 0, 
+    "max": 100, 
+    "value": 100, 
+    "step": 1, 
+    "group": "Foreground"
+  }, 
+  "fgOffsetX": {
+    "type": "number", 
+    "label": "Horizontal offset in px:", 
+    "value": 0, 
+    "step": 1, 
+    "group": "Foreground"
+  }, 
+  "fgOffsetY": {
+    "type": "number", 
+    "label": "Vertical offset in px:", 
+    "value": 0, 
+    "step": 1, 
+    "group": "Foreground"
+  }, 
+  "separatorFgShadows": {
+    "type": "hidden", 
+    "label": "———————— Shadows ————————", 
+    "group": "Foreground"
+  }, 
+  "fgShadowN": {
+    "type": "checkbox", 
+    "label": "North", 
+    "value": false, 
+    "group": "Foreground"
+  }, 
+  "fgShadowNe": {
+    "type": "checkbox", 
+    "label": "North-East", 
+    "value": false, 
+    "group": "Foreground"
+  }, 
+  "fgShadowE": {
+    "type": "checkbox", 
+    "label": "East", 
+    "value": false, 
+    "group": "Foreground"
+  }, 
+  "fgShadowSe": {
+    "type": "checkbox", 
+    "label": "South-East", 
+    "value": false, 
+    "group": "Foreground"
+  }, 
+  "fgShadowS": {
+    "type": "checkbox", 
+    "label": "South", 
+    "value": false, 
+    "group": "Foreground"
+  }, 
+  "fgShadowSw": {
+    "type": "checkbox", 
+    "label": "South-West", 
+    "value": false, 
+    "group": "Foreground"
+  }, 
+  "fgShadowW": {
+    "type": "checkbox", 
+    "label": "West", 
+    "value": false, 
+    "group": "Foreground"
+  }, 
+  "fgShadowNw": {
+    "type": "checkbox", 
+    "label": "North-West", 
+    "value": false, 
+    "group": "Foreground"
+  }, 
+  "fgShadowOffset": {
+    "type": "number", 
+    "label": "Shadow offset in px:", 
+    "min": 0, 
+    "value": 5, 
+    "step": 1, 
+    "group": "Foreground"
+  }, 
+  "fgShadowBlurRadius": {
+    "type": "number", 
+    "label": "Shadow blur radius in px:", 
+    "min": 0, 
+    "value": 0, 
+    "step": 1, 
+    "group": "Foreground"
+  }, 
+  "fgShadowColor": {
+    "type": "colorpicker", 
+    "label": "Shadow color:", 
+    "value": "rgba(1.0, 1.0, 1.0, 1.0)", 
+    "group": "Foreground"
+  }, 
+  
+  "bgUrl": {
+    "type": "image-input", 
+    "label": "Background Image:", 
+    "group": "Background"
+  }, 
+  "bgScale": {
+    "type": "number", 
+    "label": "Scale in %:", 
+    "min": 0, 
+    "value": 100, 
+    "step": 1, 
+    "group": "Background"
+  }, 
+  "bgOpacity": {
+    "type": "number", 
+    "label": "Opacity in %:", 
+    "min": 0, 
+    "max": 100, 
+    "value": 100, 
+    "step": 1, 
+    "group": "Background"
+  }, 
+  "bgOffsetX": {
+    "type": "number", 
+    "label": "Horizontal offset in px:", 
+    "value": 0, 
+    "step": 1, 
+    "group": "Background"
+  }, 
+  "bgOffsetY": {
+    "type": "number", 
+    "label": "Vertical offset in px:", 
+    "value": 0, 
+    "step": 1, 
+    "group": "Background"
+  }, 
+  
+  
+  "separatorKoFilterFg": {
+    "type": "hidden", 
+    "label": "——————— Foreground ———————", 
+    "group": "K.O. Filters"
+  }, 
+  "fgKoGrayscale": {
+    "type": "number", 
+    "label": "Foreground grayscale in %:", 
+    "min": 0, 
+    "max": 100, 
+    "value": 100, 
+    "step": 1, 
+    "group": "K.O. Filters"
+  }, 
+  "fgKoBrightness": {
+    "type": "number", 
+    "label": "Foreground brightness in %:", 
+    "min": 0, 
+    "value": 35, 
+    "step": 1, 
+    "group": "K.O. Filters"
+  }, 
+  "separatorKoFilterBg": {
+    "type": "hidden", 
+    "label": "——————— Background ———————", 
+    "group": "K.O. Filters"
+  }, 
+  "bgKoGrayscale": {
+    "type": "number", 
+    "label": "Background grayscale in %:", 
+    "min": 0, 
+    "max": 100, 
+    "value": 100, 
+    "step": 1, 
+    "group": "K.O. Filters"
+  }, 
+  "bgKoBrightness": {
+    "type": "number", 
+    "label": "Background brightness in %:", 
+    "min": 0, 
+    "value": 100, 
+    "step": 1, 
+    "group": "K.O. Filters"
+  }, 
+  
+  "fadingDuration": {
+    "type": "number", 
+    "label": "Fading duration in sec:", 
+    "min": 0, 
+    "value": 1.2, 
+    "step": 0.1, 
+    "group": "Animation settings"
+  }, 
+  "koTransDuration": {
+    "type": "number", 
+    "label": "K.O. transition duration in sec:", 
+    "min": 0, 
+    "value": 1.0, 
+    "step": 0.1, 
+    "group": "Animation settings"
+  }, 
+  "mirrorTransDuration": {
+    "type": "number", 
+    "label": "Mirror transition duration in sec:", 
+    "min": 0, 
+    "value": 1.2, 
+    "step": 0.1, 
+    "group": "Animation settings"
+  }, 
+  "saveStateAnimationDuration": {
+    "type": "number", 
+    "label": "Save state animation duration in sec:", 
+    "min": 0, 
+    "value": 1.0, 
+    "step": 0.1, 
+    "group": "Animation settings"
+  }, 
+  
+  "testModeGeneral": {
+    "type": "dropdown", 
+    "label": "Test mode:", 
+    "options": {
+      "on": "on", 
       "off": "off"
-    },
-    "value": "off",
+    }, 
+    "value": "off", 
     "group": "Test Mode"
-  },
+  }, 
+  "testArgs": {
+    "type": "text", 
+    "label": "Simulated command arguments:", 
+    "value": "", 
+    "group": "Test Mode"
+  }, 
+  "separatorTestAnimations": {
+    "type": "hidden", 
+    "label": "——————— Animations ———————", 
+    "group": "Test Mode"
+  }, 
+  "testModeKo": {
+    "type": "dropdown", 
+    "label": "Show as K.O.:", 
+    "options": {
+      "on": "on", 
+      "off": "off"
+    }, 
+    "value": "off", 
+    "group": "Test Mode"
+  }, 
+  "testModeMirrorX": {
+    "type": "dropdown", 
+    "label": "Mirror foreground on X-axis:", 
+    "options": {
+      "on": "on", 
+      "off": "off"
+    }, 
+    "value": "off", 
+    "group": "Test Mode"
+  }, 
+  "testModeMirrorY": {
+    "type": "dropdown", 
+    "label": "Mirror foreground on Y-axis:", 
+    "options": {
+      "on": "on", 
+      "off": "off"
+    }, 
+    "value": "off", 
+    "group": "Test Mode"
+  }, 
+  "separatorTestVisualizations": {
+    "type": "hidden", 
+    "label": "—————— Visualizations ——————", 
+    "group": "Test Mode"
+  }, 
+  "testModeSlotBorder": {
+    "type": "dropdown", 
+    "label": "Border around each slot:", 
+    "options": {
+      "on": "on", 
+      "off": "off"
+    }, 
+    "value": "off", 
+    "group": "Test Mode"
+  }, 
+  
   "widgetName": {
-    "type": "hidden",
-    "value": "MonsterTeam"
-  },
+    "type": "hidden", 
+    "value": "MonsterTeamVisualizer", 
+    "group": "Test Mode"
+  }, 
   "widgetAuthor": {
-    "type": "hidden",
-    "value": "avoeh"
-  },
+    "type": "hidden", 
+    "value": "avoeh", 
+    "group": "Test Mode"
+  }, 
   "widgetVersion": {
-    "type": "hidden",
-    "value": 2
+    "type": "hidden", 
+    "value": 4, 
+    "group": "Test Mode"
   }
 }
