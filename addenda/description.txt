@@ -1,0 +1,29 @@
+This custom widget attempts to make the visualization of monster teams easier, reusable and manageable by (particular) chat users.
+
+Demonstration video:
+https://www.youtube.com/watch?v=nkINbIKWw3o
+
+Slot commands:
+- !slot n tag keyLvl1 keyLvl2 ... keyLvlN
+- !slot n clear
+- !slot n ko
+- !slot n ok
+- !slot n mirror
+- !slot n mirrorY
+
+Global commands:
+- !slot undo
+- !slot savestate
+- !slot loadstate
+- !slot reload
+
+For more information see this tutorial:
+https://www.youtube.com/watch?v=Mdcpda372fs
+
+Special thanks to thefyrewire, Reboot0, pjonp, lx, Zaytri, johnny8769 and SquidCharger.
+
+Copyright Disclaimer:
+https://pastebin.com/QcPNV4Zq
+
+Licensed under AGPL-3.0:
+https://www.gnu.org/licenses/agpl-3.0.en.html
