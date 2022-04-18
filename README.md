@@ -12,6 +12,8 @@ Beyond the handling of image changes, it's also capable of ...
  - mirroring of the foreground image (if needed).
  - creating and loading of a savestate.
 
+See also this [demonstration video](https://www.youtube.com/watch?v=nkINbIKWw3o).
+
 
 ## Command types:
 Spaces are used as separators between the individual parts of the chat command (except for those in the associated command phrase or within quotation marks).
@@ -99,6 +101,8 @@ Therefore an entry like the following can make sense in some (rare) cases:
 ```
 { "default":"url1", "key2":"url2" }
 ```
+
+There is also this [tutorial video](https://www.youtube.com/watch?v=Mdcpda372fs) which shows how to create a proper pastebin document.
 
 
 ## Example:
