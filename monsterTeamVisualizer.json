@@ -10,7 +10,8 @@
     "label": "Who can trigger the widget?", 
     "options": {
       "streamer": "Streamer", 
-      "mods": "Streamer + Mods"
+      "mods": "Streamer + Mods", 
+      "everyone": "No restrictions"
     }, 
     "value": "mods", 
     "group": "General Settings"
@@ -32,6 +33,14 @@
     "label": "Cooldown for command in sec:", 
     "min": 0, 
     "value": 0, 
+    "step": 1, 
+    "group": "General Settings"
+  }, 
+  "saveDelay": {
+    "type": "number", 
+    "label": "Save delay in sec (minimizes API calls):", 
+    "min": 1, 
+    "value": 30, 
     "step": 1, 
     "group": "General Settings"
   }, 
@@ -429,7 +438,7 @@
   }, 
   "widgetVersion": {
     "type": "hidden", 
-    "value": 4, 
+    "value": 4.1, 
     "group": "Test Mode"
   }
 }

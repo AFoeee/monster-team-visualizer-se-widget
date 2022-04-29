@@ -25,13 +25,8 @@ const keywords = {
   reloadFgs: "reload"
 };
 
-/* Waits this number of milliseconds before saving a state change (in anticipation 
- * of additional changes downstream). */
-const saveDelayMillis = 30000;
-
-/* Manages which previous states to keep for restoration. (Naming convention 
- * follows the Memento pattern.) */
-const caretaker = {
+// Manages which previous states to keep for restoration.
+const restorableStates = {
   undoSteps: 5, 
   undoStack: [],                    // Holds a maximum of 'undoSteps' mementos.
   
@@ -58,11 +53,13 @@ const monsterSlots = [];            // Holds slot proxies.
 
 let triggerPhrase;                  // Command text with appended whitespace.
 let argsToUrlResolver;              // Queries with args and receives an URL.
+let isUsableByEveryone;             // If true, everyone can trigger the widget.
 let isUsableByMods;
 let otherUsers;                     // Those users can trigger the widget, too.
 let blockedUsers;                   // Those users are ignored by the widget.
 let cooldownMillis;
 let cooldownEndEpoch = 0;           // Epoch time for when a cooldown has ended.
+let saveDelayMillis;                // Delay before saving a changed state.
 
 let visualizeSaveState;             // Visual feedback of save state mechanism.
 
@@ -832,8 +829,8 @@ async function interpretKeywords(args) {
     
   // Actions that affect all slots use 'args[0]'.
   } else if (args[0] === keywords.undoChange) {
-    if (caretaker.hasPreceding()) {
-      results = restoreMemento(caretaker.popPreceding());
+    if (restorableStates.hasPreceding()) {
+      results = restoreMemento(restorableStates.popPreceding());
     }
     
   } else if (args[0] === keywords.saveState) {
@@ -993,6 +990,7 @@ async function onWidgetLoad(obj) {
   }
   
   // Defines who can use the widget.
+  isUsableByEveryone = (fieldData.permissionLvl === 'everyone');
   isUsableByMods = (fieldData.permissionLvl === 'mods');
   
   otherUsers = fieldData.otherUsers
@@ -1007,6 +1005,10 @@ async function onWidgetLoad(obj) {
   
   // Global cooldown.
   cooldownMillis = fieldData.cooldown * 1000;
+  
+  /* Waits this number of milliseconds before saving a state change (to minimize
+   * operations and prevent timeouts). */
+  saveDelayMillis = fieldData.saveDelay * 1000;
   
   // Defines foreground shadows.
   const hasShadowCastTowards = {
@@ -1129,7 +1131,8 @@ async function onMessage(msg) {
   }
   
   // Check if the user has enough permissions for the selected mode.
-  if ((isUsableByMods && msg.isModerator()) || 
+  if (isUsableByEveryone || 
+      (isUsableByMods && msg.isModerator()) || 
       msg.isBroadcaster() || 
       msg.usernameOnList(otherUsers)) {
     
@@ -1142,8 +1145,8 @@ async function onMessage(msg) {
     if (msgStart !== triggerPhrase) return;
     
     /* Now that it's established that the chat message begins with the trigger 
-     * phrase and that the user is allowed to use the command, the whole message
-     * can be processed. The trigger phrase is cut off, to allow for white space
+     * phrase and that the user is allowed to use the command, the whole message 
+     * can be processed. The trigger phrase is cut off, to allow for white space 
      * in it. */
     const args = parseArgs(
         msg.text
@@ -1177,7 +1180,7 @@ async function onMessage(msg) {
        * stack couldn't reduce in size and would just switch back and forth 
        * between the last two states instead. */
       if (args[0] !== keywords.undoChange) {
-        caretaker.push(memento);
+        restorableStates.push(memento);
       }
       
       /* All changes in the next 30 seconds are "buffered". Very frequent SE_API
