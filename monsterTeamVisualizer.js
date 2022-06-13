@@ -1055,10 +1055,10 @@ async function onWidgetLoad(obj) {
   
   /* Test mode doesn't set persistent values. When deactivated, the previous 
    * values will be restored. */
-  if (fieldData.testModeGeneral === 'on') {
+  if (fieldData.testMode === 'on') {
     
     // Is there a border visualization?
-    if (fieldData.testModeSlotBorder === "on") {
+    if (fieldData.test_hasBorder) {
       appendStyleSheet(
           `.monster-slot {
             border: 1px solid black;
@@ -1067,7 +1067,7 @@ async function onWidgetLoad(obj) {
     
     // Creates a test memento and restores it.
     const args = parseArgs(
-        fieldData.testArgs.toLowerCase());
+        fieldData.test_args.toLowerCase());
     
     let testUrl = '';
     
@@ -1084,11 +1084,11 @@ async function onWidgetLoad(obj) {
     
     const testData = {
       urlFg: testUrl, 
-      isKo: (fieldData.testModeKo === "on"), 
+      isKo: fieldData.test_isKo, 
       scaleVector: scaleVector, 
       isMirroredAcross: {
-        x: (fieldData.testModeMirrorX === "on"), 
-        y: (fieldData.testModeMirrorY === "on")
+        x: fieldData.test_isMirroredX, 
+        y: fieldData.test_isMirroredY
       }
     };
     

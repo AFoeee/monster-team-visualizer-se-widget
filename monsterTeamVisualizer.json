@@ -167,7 +167,7 @@
     "step": 1, 
     "group": "Foreground"
   }, 
-  "separatorFgShadows": {
+  "sepFgShadows": {
     "type": "hidden", 
     "label": "———————— Shadows ————————", 
     "group": "Foreground"
@@ -281,7 +281,7 @@
   }, 
   
   
-  "separatorKoFilterFg": {
+  "sepKoFilterFg": {
     "type": "hidden", 
     "label": "——————— Foreground ———————", 
     "group": "K.O. Filters"
@@ -303,7 +303,7 @@
     "step": 1, 
     "group": "K.O. Filters"
   }, 
-  "separatorKoFilterBg": {
+  "sepKoFilterBg": {
     "type": "hidden", 
     "label": "——————— Background ———————", 
     "group": "K.O. Filters"
@@ -359,70 +359,54 @@
     "group": "Animation settings"
   }, 
   
-  "testModeGeneral": {
+  "testMode": {
     "type": "dropdown", 
     "label": "Test mode:", 
     "options": {
-      "on": "on", 
-      "off": "off"
+      "on": "Enabled", 
+      "off": "Disabled"
     }, 
     "value": "off", 
     "group": "Test Mode"
   }, 
-  "testArgs": {
+  "test_args": {
     "type": "text", 
     "label": "Simulated command arguments:", 
     "value": "", 
     "group": "Test Mode"
   }, 
-  "separatorTestAnimations": {
+  "sepTestAnimations": {
     "type": "hidden", 
     "label": "——————— Animations ———————", 
     "group": "Test Mode"
   }, 
-  "testModeKo": {
-    "type": "dropdown", 
-    "label": "Show as K.O.:", 
-    "options": {
-      "on": "on", 
-      "off": "off"
-    }, 
-    "value": "off", 
+  "test_isKo": {
+    "type": "checkbox", 
+    "label": "Show as K.O.?", 
+    "value": true, 
     "group": "Test Mode"
   }, 
-  "testModeMirrorX": {
-    "type": "dropdown", 
-    "label": "Mirror foreground on X-axis:", 
-    "options": {
-      "on": "on", 
-      "off": "off"
-    }, 
-    "value": "off", 
+  "test_isMirroredX": {
+    "type": "checkbox", 
+    "label": "Mirror foreground on X-axis?", 
+    "value": true, 
     "group": "Test Mode"
   }, 
-  "testModeMirrorY": {
-    "type": "dropdown", 
-    "label": "Mirror foreground on Y-axis:", 
-    "options": {
-      "on": "on", 
-      "off": "off"
-    }, 
-    "value": "off", 
+  "test_isMirroredY": {
+    "type": "checkbox", 
+    "label": "Mirror foreground on Y-axis?", 
+    "value": true, 
     "group": "Test Mode"
   }, 
-  "separatorTestVisualizations": {
+  "sepTestVisualizations": {
     "type": "hidden", 
     "label": "—————— Visualizations ——————", 
     "group": "Test Mode"
   }, 
-  "testModeSlotBorder": {
-    "type": "dropdown", 
-    "label": "Border around each slot:", 
-    "options": {
-      "on": "on", 
-      "off": "off"
-    }, 
-    "value": "off", 
+  "test_hasBorder": {
+    "type": "checkbox", 
+    "label": "Border around each slot?", 
+    "value": true, 
     "group": "Test Mode"
   }, 
   
@@ -438,7 +422,7 @@
   }, 
   "widgetVersion": {
     "type": "hidden", 
-    "value": 4.1, 
+    "value": 4.2, 
     "group": "Test Mode"
   }
 }
