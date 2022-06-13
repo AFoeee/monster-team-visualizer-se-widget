@@ -1,4 +1,4 @@
-# MonsterTeamVisualizer
+# Monster Team Visualizer
 This StreamElements custom widget attempts to make the visualization of monster teams easier, reusable and manageable by (particular) chat users.
 
 Special thanks to thefyrewire, Reboot0, pjonp, lx, Zaytri, johnny8769 and SquidCharger.
