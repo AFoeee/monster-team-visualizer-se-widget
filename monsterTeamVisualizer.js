@@ -947,6 +947,9 @@ function buildScaleVector(mode) {
 async function onWidgetLoad(obj) {
   const fieldData = obj.detail.fieldData;
   
+  // Makes it easier for the user to look up the widget version.
+  console.log(`Initialize ${fieldData.widgetName} (v${fieldData.widgetVersion}).`);
+  
   /* Only the beginning of a chat message is evaluated. To avoid false-positive 
    * matches, whitespace is appended. */
   triggerPhrase = fieldData.command.toLowerCase() + " ";

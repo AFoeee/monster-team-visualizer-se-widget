@@ -422,7 +422,7 @@
   }, 
   "widgetVersion": {
     "type": "hidden", 
-    "value": 4.2, 
+    "value": 4, 
     "group": "Test Mode"
   }
 }
