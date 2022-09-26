@@ -144,3 +144,8 @@ Since there is no *"default"* key for D's `super` nesting, it's necessary to spe
 !slot 1 d super form1
 !slot 1 d super form2
 ```
+
+
+## Used libraries:  
+ - [Reboot0's Widget Tools](https://reboot0-de.github.io/se-tools/index.html)  
+ - [GreenSock Animation Platform](https://github.com/greensock/GSAP)  
